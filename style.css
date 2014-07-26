@@ -1,0 +1,44 @@
+html{
+	height : 100%;
+}
+body{
+	width      : 100%;
+	min-height : 100%;
+	height     : 100%;
+}
+
+#wrap{
+	min-height : 100%;
+}
+/* -------------------------------------------------------------------------- */
+#cnt h1{
+	margin : 0;
+	padding : 0;
+}
+/* -------------------------------------------------------------------------- */
+#drower{
+	width      : 100%;
+	height     : 100%;
+	background : #333;
+	position   : fixed;
+	left       : 100%;
+	top        : 0;
+	z-index    : 9000;
+}
+#drower ul{
+	margin  : 0;
+	padding : 0;
+}
+#drower li{
+	list-style    : none;
+	font-size     : 13px;
+	border-top    : 1px solid #555;
+	border-bottom : 1px solid #222;
+}
+#drower li a{
+	text-decoration : none;
+	display         : block;
+	color           : #DDD;
+	padding         : 1em;
+	letter-spacing  : 0.05em;
+}
