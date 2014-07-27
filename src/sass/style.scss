@@ -1,0 +1,174 @@
+@import "compass";
+
+
+@mixin addVender($prop,$val){
+	@each $prefix in -webkit-, -moz-, -ms-, -o-, ''{
+		#{$prefix}#{$prop}:$val
+	}
+}
+
+html{
+	height : 100%;
+}
+body{
+	width      : 100%;
+	min-height : 100%;
+	height     : 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+#wrap{
+	min-height : 100%;
+}
+/* -------------------------------------------------------------------------- */
+
+@-webkit-keyframes open{
+	0%{transform:translate3D(0,0,0)}
+	100%{transform:translate3D(-200px,0,0)}
+}
+@-webkit-keyframes close{
+	0%{transform:translate3D(-200px,0,0)}
+	100%{transform:translate3D(0,0,0)}
+}
+
+@keyframes ani-1 {
+	9%{width:8px;height:8px;margin-top:-25px;}
+	13%,17%{width:8px;height:8px;margin-top:-20px;}
+	33%{width:80px;margin-top:-20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
+	37%,55%{width:60px;margin-top:-20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
+	62%,85%{width:60px;margin-top:0;transform:translate3D(-50%,-50%,0) rotate(90deg);}
+	89%{width:80px;}
+	98%,100%{width:8px;height:8px;transform:translate3D(-50%,-50%,0) rotate(90deg);}
+}
+
+@keyframes ani-2 {
+	9%{width:8px;height:8px;}
+	13%,17%{width:8px;height:8px;}
+	34%{width:80px;}
+	38%,85%{width:60px;}
+	89%{width:80px;}
+	98%,100%{width:8px;height:8px;}
+}
+
+@keyframes ani-3 {
+	9%{width:8px;height:8px;margin-top:25px;}
+	13%,17%{width:8px;height:8px;margin-top:20px;}
+	35%{width:80px;margin-top:20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
+	39%,55%{width:60px;margin-top:20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
+	62%,85%{width:60px;margin-top:0;transform:translate3D(-50%,-50%,0) rotate(90deg);}
+	89%{width:80px;}
+	98%,100%{width:8px;height:8px;transform:translate3D(-50%,-50%,0) rotate(90deg);}
+}
+
+@keyframes ani-4 {
+	69%{transform:rotate(0deg);}
+	77%,100%{transform:rotate(45deg);}
+}
+
+header{
+	width      : 100%;
+	height     : 60px;
+	background : #333;
+	position   : relative;
+	text-align : center;
+	-webkit-animation-fill-mode : forwards;
+	h1{
+		font-size   : 21px;
+		color       : #FFF;
+		margin      : 0;
+		padding     : 0;
+		line-height : 60px;
+	}
+	a{
+		display    : block;
+		position   : absolute;
+		width      : 30px;
+		height     : 30px;
+		top        : 50%;
+		right      : 10px;
+		margin-top : -20px;
+		text-align : left;
+		padding    : 5px;
+	}
+	a span{
+		display       : block;
+		position      : absolute;
+		background    : #FFF;
+		width         : 30px;
+		height        : 6px;
+		border-radius : 6px;
+		&:nth-child(1){
+
+		}
+		&:nth-child(2){
+			top : 50%;
+			margin-top : -3px;
+		}
+		&:nth-child(3){
+			top : 100%;
+			margin-top : -11px;
+		}
+	}
+}
+
+body.open header{
+	transform:translate3D(-200px,0,0);
+	@include addVender(animation,open 0.5s ease-in-out 1 );
+}
+body.close header{
+	transform:translate3D(0,0,0);
+	@include addVender(animation,close 0.5s ease-in-out 1 );
+}
+
+/* -------------------------------------------------------------------------- */
+body.open article{
+	transform:translate3D(-200px,0,0);
+	@include addVender(animation,open 0.5s ease-in-out 1);
+}
+
+body.close article{
+	transform:translate3D(0,0,0);
+	@include addVender(animation,close 0.5s ease-in-out 1 );
+}
+
+article h1{
+	margin : 0;
+	padding : 0;
+}
+/* -------------------------------------------------------------------------- */
+nav{
+	width      : 100%;
+	height     : 100%;
+	background : #333;
+	position   : fixed;
+	left       : 100%;
+	top        : 0;
+	z-index    : 9000;
+	ul{
+		margin  : 0;
+		padding : 0;
+	}
+	ul li{
+		list-style    : none;
+		font-size     : 13px;
+		border-top    : 1px solid #555;
+		border-bottom : 1px solid #222;
+	}
+	ul li a{
+		text-decoration : none;
+		display         : block;
+		color           : #DDD;
+		padding         : 1em;
+		letter-spacing  : 0.05em;
+	}
+}
+
+body.open nav{
+	transform:translate3D(-200px,0,0);
+	@include addVender(animation,open 0.5s ease-in-out 1);
+}
+
+body.close nav{
+	transform:translate3D(0,0,0);
+	@include addVender(animation,close 0.5s ease-in-out 1 );
+}

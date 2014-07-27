@@ -1,0 +1,9 @@
+{
+  "name": "totori",
+  "version": "0.0.6",
+  "authors": "Yokota Kenji <mail@yokotakenji.me>",
+  "description": "web site framework",
+  "dependencies": {
+  },
+  "private": true
+}
