@@ -8,47 +8,11 @@ body{
 	min-height : 100%;
 	height     : 100%;
 }
-
 /* -------------------------------------------------------------------------- */
 #wrap{
 	min-height : 100%;
 }
 /* -------------------------------------------------------------------------- */
-
-@keyframes ani-1 {
-	9%{width:8px;height:8px;margin-top:-25px;}
-	13%,17%{width:8px;height:8px;margin-top:-20px;}
-	33%{width:80px;margin-top:-20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
-	37%,55%{width:60px;margin-top:-20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
-	62%,85%{width:60px;margin-top:0;transform:translate3D(-50%,-50%,0) rotate(90deg);}
-	89%{width:80px;}
-	98%,100%{width:8px;height:8px;transform:translate3D(-50%,-50%,0) rotate(90deg);}
-}
-
-@keyframes ani-2 {
-	9%{width:8px;height:8px;}
-	13%,17%{width:8px;height:8px;}
-	34%{width:80px;}
-	38%,85%{width:60px;}
-	89%{width:80px;}
-	98%,100%{width:8px;height:8px;}
-}
-
-@keyframes ani-3 {
-	9%{width:8px;height:8px;margin-top:25px;}
-	13%,17%{width:8px;height:8px;margin-top:20px;}
-	35%{width:80px;margin-top:20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
-	39%,55%{width:60px;margin-top:20px;transform:translate3D(-50%,-50%,0) rotate(0deg);}
-	62%,85%{width:60px;margin-top:0;transform:translate3D(-50%,-50%,0) rotate(90deg);}
-	89%{width:80px;}
-	98%,100%{width:8px;height:8px;transform:translate3D(-50%,-50%,0) rotate(90deg);}
-}
-
-@keyframes ani-4 {
-	69%{transform:rotate(0deg);}
-	77%,100%{transform:rotate(45deg);}
-}
-
 header{
 	width      : 100%;
 	height     : 50px;
@@ -58,7 +22,6 @@ header{
 	left       : 0;
 	text-align : center;
 	z-index    : 100;
-	-webkit-animation-fill-mode : forwards;
 	h1{
 		font-size   : 18px;
 		color       : #FFF;
@@ -83,15 +46,9 @@ header{
 		height        : 5px;
 		border-radius : 5px;
 		left          : 10px;
-		&:nth-child(1){
-			top : 0px + 12;
-		}
-		&:nth-child(2){
-			top : 10px + 12;
-		}
-		&:nth-child(3){
-			top : 20px + 12;
-		}
+		&:nth-child(1){ top : 0px + 12; }
+		&:nth-child(2){ top : 10px + 12; }
+		&:nth-child(3){ top : 20px + 12; }
 	}
 }
 /* -------------------------------------------------------------------------- */
