@@ -1,4 +1,4 @@
-src/bower_components/
-src/node_modules/
-src/temp/
-src/usr/*
+*/src/bower_components/
+*/src/node_modules/
+*/src/temp/
+*/src/usr/*
