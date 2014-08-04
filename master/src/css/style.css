@@ -75,6 +75,10 @@ article section {
 }
 article section:first-child {
   border-top: none;
+  text-align: center;
+}
+article section:first-child img {
+  max-width: 240px;
 }
 article section h1 {
   margin: 0;

@@ -61,7 +61,13 @@ article{
 article section{
 	padding    : 15px 15px 0 15px;
 	border-top : 1px solid #AAA;
-	&:first-child{ border-top : none; }
+	&:first-child{
+		border-top : none;
+		text-align : center;
+		img{
+			max-width : 240px;
+		}
+	}
 	h1{
 		margin        : 0;
 		padding       : 0;
