@@ -4,7 +4,6 @@ $header  = $('header')
 $article = $('article')
 $drower  = $('nav')
 $btn     = $('#btn')
-openFlg  = 1
 
 cssAnimationTarget = [
 	$header
@@ -36,10 +35,6 @@ cssAnimation =
 		'transition-duration'        : '300ms'
 		'transform'                  : 'scale(0)'
 		'transition-timing-function' : 'ease-in-out'
-	'span2Close' : 
-		'transition-duration'        : '300ms'
-		'transform'                  : 'scale(1)'
-		'transition-timing-function' : 'ease-in-out'
 	'span3Open' : 
 		'transition-duration'        : '300ms'
 		'transform-origin'           : '0 0'
@@ -61,10 +56,6 @@ cssAnimation =
 		'transition-duration'        : '300ms'
 		'transform'                  : 'scale(1)'
 		'transition-timing-function' : 'ease-in-out'
-	'span2Close' : 
-		'transition-duration'        : '300ms'
-		'transform'                  : 'scale(1)'
-		'transition-timing-function' : 'ease-in-out'
 	'span3Close' : 
 		'transition-duration'        : '300ms'
 		'transform-origin'           : '0 0'
@@ -73,21 +64,22 @@ cssAnimation =
 		'width'                      : '30px'
 
 
-
 $btn.on('click',(e)->
 	e.preventDefault()
-	for target in cssAnimationTarget
-		if(openFlg%2)
+	if(!$body.hasClass('open'))
+		$body.addClass('open')
+		for target in cssAnimationTarget
 			target.css(cssAnimation.open)
 			$btn.css(cssAnimation.btnOpen)
 			$('span:nth-child(1)',$btn).css(cssAnimation.span1Open)
 			$('span:nth-child(2)',$btn).css(cssAnimation.span2Open)
 			$('span:nth-child(3)',$btn).css(cssAnimation.span3Open)
-		else
+	else
+		$body.removeClass('open')
+		for target in cssAnimationTarget
 			target.css(cssAnimation.close)
 			$btn.css(cssAnimation.btnClose)
 			$('span:nth-child(1)',$btn).css(cssAnimation.span1Close)
 			$('span:nth-child(2)',$btn).css(cssAnimation.span2Close)
 			$('span:nth-child(3)',$btn).css(cssAnimation.span3Close)
-	openFlg++
 )

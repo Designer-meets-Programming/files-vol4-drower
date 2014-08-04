@@ -1,4 +1,4 @@
-var $article, $body, $btn, $drower, $header, cssAnimation, cssAnimationTarget, openFlg, ua;
+var $article, $body, $btn, $drower, $header, cssAnimation, cssAnimationTarget, ua;
 
 ua = navigator.userAgent.toLowerCase();
 
@@ -11,8 +11,6 @@ $article = $('article');
 $drower = $('nav');
 
 $btn = $('#btn');
-
-openFlg = 1;
 
 cssAnimationTarget = [$header, $article, $drower];
 
@@ -44,11 +42,6 @@ cssAnimation = {
     'transform': 'scale(0)',
     'transition-timing-function': 'ease-in-out'
   },
-  'span2Close': {
-    'transition-duration': '300ms',
-    'transform': 'scale(1)',
-    'transition-timing-function': 'ease-in-out'
-  },
   'span3Open': {
     'transition-duration': '300ms',
     'transform-origin': '0 0',
@@ -73,11 +66,6 @@ cssAnimation = {
     'transform': 'scale(1)',
     'transition-timing-function': 'ease-in-out'
   },
-  'span2Close': {
-    'transition-duration': '300ms',
-    'transform': 'scale(1)',
-    'transition-timing-function': 'ease-in-out'
-  },
   'span3Close': {
     'transition-duration': '300ms',
     'transform-origin': '0 0',
@@ -88,25 +76,33 @@ cssAnimation = {
 };
 
 $btn.on('click', function(e) {
-  var target, _i, _len;
+  var target, _i, _j, _len, _len1, _results, _results1;
   e.preventDefault();
-  for (_i = 0, _len = cssAnimationTarget.length; _i < _len; _i++) {
-    target = cssAnimationTarget[_i];
-    if (openFlg % 2) {
+  if (!$body.hasClass('open')) {
+    $body.addClass('open');
+    _results = [];
+    for (_i = 0, _len = cssAnimationTarget.length; _i < _len; _i++) {
+      target = cssAnimationTarget[_i];
       target.css(cssAnimation.open);
       $btn.css(cssAnimation.btnOpen);
       $('span:nth-child(1)', $btn).css(cssAnimation.span1Open);
       $('span:nth-child(2)', $btn).css(cssAnimation.span2Open);
-      $('span:nth-child(3)', $btn).css(cssAnimation.span3Open);
-    } else {
+      _results.push($('span:nth-child(3)', $btn).css(cssAnimation.span3Open));
+    }
+    return _results;
+  } else {
+    $body.removeClass('open');
+    _results1 = [];
+    for (_j = 0, _len1 = cssAnimationTarget.length; _j < _len1; _j++) {
+      target = cssAnimationTarget[_j];
       target.css(cssAnimation.close);
       $btn.css(cssAnimation.btnClose);
       $('span:nth-child(1)', $btn).css(cssAnimation.span1Close);
       $('span:nth-child(2)', $btn).css(cssAnimation.span2Close);
-      $('span:nth-child(3)', $btn).css(cssAnimation.span3Close);
+      _results1.push($('span:nth-child(3)', $btn).css(cssAnimation.span3Close));
     }
+    return _results1;
   }
-  return openFlg++;
 });
 
 //# sourceMappingURL=script.js.map
